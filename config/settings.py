@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     #apps
     'apps.admin_auth',
     'apps.product',
+    'apps.order'
 ]
 
 MIDDLEWARE = [

@@ -1,4 +1,3 @@
-from email.mime import image
 from django.db import models
 from slugify import slugify
 from .utils import get_time
@@ -12,6 +11,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
+    in_stock = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         if not self.slug:
