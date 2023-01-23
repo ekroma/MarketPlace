@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     
     #apps
-    'apps.admin_auth',
+    'apps.account',
     'apps.product',
     'apps.order'
 ]
@@ -151,4 +151,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'admin_auth.admin'
+AUTH_USER_MODEL = 'account.User'

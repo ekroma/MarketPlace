@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('services.drf_yasg')),
     path('admin/', admin.site.urls),
     path('market/', include('apps.product.urls')),
+    path('account/', include('apps.account.urls')),
     # path('order/', include('apps.order.urls'))
 ]
