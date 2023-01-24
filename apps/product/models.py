@@ -26,6 +26,9 @@ class Product(models.Model):
         related_name='product',
         blank=True
     )
+    size = models.CharField(max_length=10)
+    weight = models.CharField(max_length=10)
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title + get_time())
