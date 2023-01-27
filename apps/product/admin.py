@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Product, Gallery, Color
+from .models import Product, Gallery, Color, Order
 
-admin.site.register(Color)
+admin.site.register([Color, Order])
 
 class GalleryInline(admin.TabularInline):
     fk_name = 'product'

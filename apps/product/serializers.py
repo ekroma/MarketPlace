@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Gallery, Color
+from .models import Product, Gallery, Color, Order
 from rest_framework import permissions
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -53,3 +53,9 @@ class ColorSerializer(serializers.ModelSerializer):
         return attrs
 
 
+class OrderSerializer(serializers.ModelSerializer):
+
+
+    class Meta:
+        model = Order
+        fields = '__all__'

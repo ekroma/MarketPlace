@@ -30,6 +30,8 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+    phone = models.IntegerField()
+    adress= models.CharField(max_length=200, blank=True)
     username = models.CharField('Username', max_length=50, primary_key=True)
     email = models.EmailField('Email', max_length=255, unique=True)
     is_staff = models.BooleanField(default=False)

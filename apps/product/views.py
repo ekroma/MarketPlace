@@ -1,9 +1,11 @@
+from .models import Order
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import filters
 from django_filters import rest_framework as rest_filter
 from .models import Product
-from .serializers import ProductListSerialiers, ProductSerializer
+from .serializers import ProductListSerialiers, ProductSerializer, OrderSerializer
 from rest_framework import permissions
+
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
@@ -24,3 +26,7 @@ class ProductViewSet(ModelViewSet):
         context['request'] = self.request
         return context
 
+
+class OrderViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
