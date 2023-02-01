@@ -1,0 +1,21 @@
+[0;1;32m●[0m gunicorn.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; disabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Fri 2023-01-27 10:59:27 UTC; 4s ago
+TriggeredBy: [0;1;32m●[0m gunicorn.socket
+   Main PID: 51242 (gunicorn)
+      Tasks: 4 (limit: 2372)
+     Memory: 141.0M
+     CGroup: /system.slice/gunicorn.service
+             ├─51242 /home/ubuntu/MarketPlace/venv/bin/python3 /home/ubuntu/MarketPlace/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock config.wsgi:application
+             ├─51258 /home/ubuntu/MarketPlace/venv/bin/python3 /home/ubuntu/MarketPlace/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock config.wsgi:application
+             ├─51259 /home/ubuntu/MarketPlace/venv/bin/python3 /home/ubuntu/MarketPlace/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock config.wsgi:application
+             └─51260 /home/ubuntu/MarketPlace/venv/bin/python3 /home/ubuntu/MarketPlace/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock config.wsgi:application
+
+Jan 27 10:59:27 ip-172-26-8-250 systemd[1]: Started gunicorn daemon.
+Jan 27 10:59:27 ip-172-26-8-250 gunicorn[51242]: [2023-01-27 10:59:27 +0000] [51242] [INFO] Starting gunicorn 20.1.0
+Jan 27 10:59:27 ip-172-26-8-250 gunicorn[51242]: [2023-01-27 10:59:27 +0000] [51242] [INFO] Listening at: unix:/run/gunicorn.sock (51242)
+Jan 27 10:59:27 ip-172-26-8-250 gunicorn[51242]: [2023-01-27 10:59:27 +0000] [51242] [INFO] Using worker: sync
+Jan 27 10:59:27 ip-172-26-8-250 gunicorn[51258]: [2023-01-27 10:59:27 +0000] [51258] [INFO] Booting worker with pid: 51258
+Jan 27 10:59:27 ip-172-26-8-250 gunicorn[51259]: [2023-01-27 10:59:27 +0000] [51259] [INFO] Booting worker with pid: 51259
+Jan 27 10:59:28 ip-172-26-8-250 gunicorn[51260]: [2023-01-27 10:59:28 +0000] [51260] [INFO] Booting worker with pid: 51260
+Jan 27 10:59:29 ip-172-26-8-250 gunicorn[51258]:  - - [27/Jan/2023:16:59:29 +0600] "GET / HTTP/1.1" 200 2151 "-" "curl/7.68.0"

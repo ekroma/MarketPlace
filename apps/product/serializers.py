@@ -33,8 +33,19 @@ class ProductSerializer(serializers.ModelSerializer):
 class ProductListSerialiers(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('slug','title','image')
+        fields = ('slug','title','image','description', 'price','color', 'size', 'weight')
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+
+        representation['carousel'] = ProductImageSerializer(
+            instance.product_images.all(), many=True
+        ).data
+        representation['color'] = ColorSerializer(
+            instance.color.all(), many=True
+        ).data
+        return representation
+        
 class ProductImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery

@@ -71,26 +71,26 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
 
 CORS_ALLOWED_ORIGINS = [
     "http://read.only.com",
-    "http://3.71.34.7",
+    "http://3.67.196.143",
     'http://localhost:3000',
+    'http://localhost:3030',
     'http://localhost:8000'
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://change.allowed.com",
-]
-
-CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3030',
-    'http://3.71.34.7',
-    'http://127.0.0.1:8000',
-    'http://localhost:8080'
-]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
@@ -142,8 +142,15 @@ REST_FRAMEWORK = {
     'SEARCH_PARAM': 'q'
 }
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL = 'redis://127.0.0.1:9001'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:9001'
+
+EMAIL_BACKENDS = 'django.core.mail.backends.smtp.EmailBackend' 
+EMAIL_HOST_USER = config('EMAIL_HOST_USER') 
+EMAIL_PORT = config('EMAIL_PORT', default=587)
+EMAIL_HOST = config('EMAIL_HOST') 
+EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD') 
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
 
 # Database
@@ -195,13 +202,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_DIRS = [
-    os.path.join(BASE_DIR, 'config/static'),
-]
 
-MEDIA_URL = 'media/'
+
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
